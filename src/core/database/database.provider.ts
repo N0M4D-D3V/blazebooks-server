@@ -1,6 +1,7 @@
 import { Sequelize } from "sequelize-typescript";
 import { databaseConfig } from "./db.config";
-import { DEVELOPMENT, PRODUCTION, SEQUELIZE, TEST } from "../constants";
+import { DEVELOPMENT, PRODUCTION, SEQUELIZE, TEST } from "@core/constants";
+import { Book } from "@controllers/books/book.entity";
 
 export const databaseProviders = [
   {
@@ -21,7 +22,7 @@ export const databaseProviders = [
           config = databaseConfig.dev;
       }
       const sequelize = new Sequelize(config);
-      sequelize.addModels(["models goes here"]);
+      sequelize.addModels([Book]);
       await sequelize.sync();
       return sequelize;
     },
