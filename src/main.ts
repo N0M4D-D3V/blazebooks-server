@@ -11,6 +11,8 @@ async function bootstrap() {
       else callback(new Error("Not allowed by cors"));
     },
   });
+
+  app.setGlobalPrefix("api/v1");
   await app.listen(3000);
 }
 
