@@ -1,10 +1,10 @@
 import { BOOK_REPOSITORY } from "@core/constants";
 import { Inject, Injectable } from "@nestjs/common";
 import { Book } from "./book.entity";
-import { BookDto } from "./book.dto";
+import { BookDto } from "./dto/book.dto";
 
 @Injectable()
-export class BooksService {
+export class BookService {
   constructor(
     @Inject(BOOK_REPOSITORY) private readonly bookRepository: typeof Book
   ) {}

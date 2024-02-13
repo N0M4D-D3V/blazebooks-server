@@ -20,7 +20,6 @@
     "paths": {
       "@core/*": ["src/core/*"],
       "@interfaces/*": ["src/interfaces/*"],
-      "@controllers/*": ["src/controllers/*"],
       "@modules/*": ["src/modules/*"]
     }
   }
