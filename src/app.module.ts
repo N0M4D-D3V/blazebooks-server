@@ -1,14 +1,8 @@
 import { Module } from "@nestjs/common";
-import { ServeStaticModule } from "@nestjs/serve-static";
-import { join } from "path";
 import { ControllerModule } from "./controllers/controller.module";
+import { DatabaseModule } from "./core/database/database.module";
 
 @Module({
-  imports: [
-    ControllerModule,
-    ServeStaticModule.forRoot({
-      rootPath: join(__dirname, "..", "public"),
-    }),
-  ],
+  imports: [ControllerModule, DatabaseModule],
 })
 export class AppModule {}
