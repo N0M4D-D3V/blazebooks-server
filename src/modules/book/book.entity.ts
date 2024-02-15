@@ -33,7 +33,7 @@ export class Book extends Model<Book> {
   description?: string;
 
   @Column({
-    type: DataType.ARRAY,
+    type: DataType.ARRAY(DataType.STRING),
     allowNull: true,
   })
   genres?: string[];
