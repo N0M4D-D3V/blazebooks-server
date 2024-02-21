@@ -1,14 +1,17 @@
 import { NestFactory } from "@nestjs/core";
 import { AppModule } from "./app.module";
 
-const allowedOrigins: string[] = ["http://localhost:4200"];
+const allowedOrigins: string[] = ["localhost", "http://localhost:4200"];
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.enableCors({
     origin: (origin, callback) => {
       if (allowedOrigins.indexOf(origin) !== -1) callback(null, true);
-      else callback(new Error("Not allowed by cors"));
+      else {
+        console.log("<!> Blazebooks: Host not allowed by cors");
+        callback(null, false);
+      }
     },
   });
 
