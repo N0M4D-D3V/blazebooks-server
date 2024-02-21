@@ -10,14 +10,14 @@ export class BookService {
   ) {}
 
   async create(book: BookDto): Promise<Book> {
-    return await this.bookRepository.create<Book>(book);
+    return this.bookRepository.create<Book>(book);
   }
 
   async getAll(): Promise<Book[]> {
-    return await this.bookRepository.findAll<Book>();
+    return this.bookRepository.findAll<Book>();
   }
 
   async findOneById(id: number): Promise<Book> {
-    return await this.bookRepository.findOne<Book>({ where: { id } });
+    return this.bookRepository.findOne<Book>({ where: { id } });
   }
 }
