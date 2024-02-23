@@ -8,4 +8,10 @@ export class Page extends Model<Page> {
 
   @Column({ type: DataType.JSONB, allowNull: false })
   options: Option[];
+
+  @Column({ type: DataType.DATE, allowNull: true })
+  createdAt?: Date;
+
+  @Column({ type: DataType.DATE, allowNull: true })
+  updatedAt?: Date;
 }
