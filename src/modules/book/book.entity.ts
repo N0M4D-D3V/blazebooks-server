@@ -37,4 +37,21 @@ export class Book extends Model<Book> {
     allowNull: true,
   })
   genres?: string[];
+
+  @Column({
+    type: DataType.ARRAY(DataType.ARRAY(DataType.STRING)),
+    allowNull: false,
+  })
+  content: string[][];
+
+  @Column({
+    type: DataType.DATE,
+    allowNull: true,
+  })
+  createdAt?: Date;
+  @Column({
+    type: DataType.DATE,
+    allowNull: true,
+  })
+  updatedAt?: Date;
 }

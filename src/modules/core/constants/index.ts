@@ -5,3 +5,4 @@ export const PRODUCTION = "production";
 
 export const BOOK_REPOSITORY = "BOOK_REPOSITORY";
 export const CHAPTER_REPOSITORY = "CHAPTER_REPOSITORY";
+export const PAGE_REPOSITORY = "PAGE_REPOSITORY";

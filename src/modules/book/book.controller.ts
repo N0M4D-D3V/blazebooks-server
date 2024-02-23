@@ -1,4 +1,4 @@
-import { Controller, Get } from "@nestjs/common";
+import { Controller, Get, NotFoundException } from "@nestjs/common";
 import { Book } from "./book.entity";
 import { BookService } from "./book.service";
 
@@ -8,6 +8,8 @@ export class BookController {
 
   @Get()
   public async getAll(): Promise<Book[]> {
-    return this.booksService.getAll();
+    const result: Book[] = await this.booksService.getAll();
+    if (result) return result;
+    else throw new NotFoundException(`Any book found!`);
   }
 }

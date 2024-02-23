@@ -6,4 +6,13 @@ export class BookDto {
   imgUrl?: string;
   description?: string;
   genres?: string[];
+
+  createdAt?: Date;
+  updatedAt?: Date;
+
+  /**
+   * Stores the content. First level refers to chapter and
+   * second level refers to pageID
+   */
+  content: string[][];
 }
