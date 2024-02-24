@@ -9,4 +9,7 @@ export interface PageDto {
 
   createdAt?: Date;
   updatedAt?: Date;
+
+  // specific css styles for this page
+  scss?: string;
 }

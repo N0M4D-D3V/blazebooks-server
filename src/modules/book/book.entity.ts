@@ -45,6 +45,12 @@ export class Book extends Model<Book> {
   content: string[][];
 
   @Column({
+    type: DataType.TEXT,
+    allowNull: true,
+  })
+  scss?: string;
+
+  @Column({
     type: DataType.DATE,
     allowNull: true,
   })

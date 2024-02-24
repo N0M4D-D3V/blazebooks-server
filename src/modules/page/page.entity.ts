@@ -13,6 +13,9 @@ export class Page extends Model<Page> {
   @Column({ type: DataType.JSONB, allowNull: false })
   options: Option[];
 
+  @Column({ type: DataType.TEXT, allowNull: true })
+  scss?: string;
+
   @Column({ type: DataType.DATE, allowNull: true })
   createdAt?: Date;
 

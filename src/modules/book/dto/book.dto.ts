@@ -15,4 +15,7 @@ export class BookDto {
    * second level refers to pageID
    */
   content: string[][];
+
+  // Plain text. Specific styles for this book.
+  scss?: string;
 }
