@@ -3,6 +3,10 @@ import { Option } from "./interface/option.interface";
 
 @Table
 export class Page extends Model<Page> {
+  // book title + chapter number + page number
+  @Column({ type: DataType.STRING, allowNull: false })
+  reference: string;
+
   @Column({ type: DataType.TEXT, allowNull: false })
   html: string;
 

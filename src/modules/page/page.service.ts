@@ -11,7 +11,7 @@ export class PageService {
     return this.repo.create<Page>(page);
   }
 
-  async getById(id: string | number): Promise<Page> {
-    return this.repo.findOne<Page>({ where: { id } });
+  async getByReference(ref: string): Promise<Page> {
+    return this.repo.findOne<Page>({ where: { reference: ref } });
   }
 }

@@ -6,10 +6,10 @@ import { Page } from "./page.entity";
 export class PageController {
   constructor(private readonly pageService: PageService) {}
 
-  @Get(":id")
-  public async getPageById(@Param("id") id: string | number): Promise<Page> {
-    const result: Page = await this.pageService.getById(id);
+  @Get(":ref")
+  public async getPageById(@Param("ref") ref: string): Promise<Page> {
+    const result: Page = await this.pageService.getByReference(ref);
     if (result) return result;
-    else throw new NotFoundException(`Page with ID ${id} not found`);
+    else throw new NotFoundException(`Page with ID ${ref} not found`);
   }
 }
