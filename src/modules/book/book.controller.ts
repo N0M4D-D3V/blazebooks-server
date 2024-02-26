@@ -15,7 +15,7 @@ export class BookController {
     else throw new NotFoundException(`Any book found!`);
   }
 
-  @Get("bookcover/:imagename")
+  @Get("cover/:imagename")
   public getBookCover(
     @Param("imagename") imagename: string,
     @Res() res
