@@ -5,6 +5,7 @@ const allowedOrigins: string[] = ["localhost", "http://localhost:4200"];
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+
   app.enableCors({
     origin: (origin, callback) => {
       callback(null, true);
@@ -12,7 +13,7 @@ async function bootstrap() {
   });
 
   app.setGlobalPrefix("api/v1");
-  await app.listen(3000);
+  await app.listen(3000, "0.0.0.0");
 }
 
 bootstrap();
