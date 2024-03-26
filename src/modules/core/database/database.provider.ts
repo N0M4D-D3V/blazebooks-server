@@ -27,7 +27,7 @@ export const databaseProviders = [
       }
       const sequelize: Sequelize = new Sequelize(config);
       sequelize.addModels([Book, Page]);
-      await sequelize.sync();
+      await sequelize.sync({ force: false });
       await initIfNeeded(sequelize);
 
       return sequelize;
@@ -42,8 +42,8 @@ const initIfNeeded = async (sequelize: Sequelize) => {
   //if count === 0, then table is empty
   if (countBooks === 0 && countPages === 0) {
     // Run PostgreSQL script
-    console.log("<> DB Provider: tables are empty");
-    console.log("<> DB Provider: running bulk load...");
+    console.log("\n<> DB Provider: tables are empty");
+    console.log("<> DB Provider: running bulk load...\n");
 
     const sqlPath: string = path.resolve(__dirname, "../sql/db-demo.sql");
     const sql: string = fs.readFileSync(sqlPath, "utf-8");
@@ -51,9 +51,9 @@ const initIfNeeded = async (sequelize: Sequelize) => {
     // Execute SQL queries
     try {
       await sequelize.query(sql);
-      console.log("<> DB Provider: data loaded successfully!");
+      console.log("\n<> DB Provider: data loaded successfully!\n");
     } catch (error) {
-      console.error("<> DB Provider: error loading data!", error);
+      console.error("\n<> DB Provider: error loading data!\n", error);
     }
   }
 };
